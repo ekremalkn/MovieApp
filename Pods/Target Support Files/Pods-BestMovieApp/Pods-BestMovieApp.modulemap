@@ -1,0 +1,6 @@
+module Pods_BestMovieApp {
+  umbrella header "Pods-BestMovieApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
