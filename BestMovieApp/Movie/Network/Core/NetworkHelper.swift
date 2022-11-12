@@ -10,7 +10,7 @@ import Foundation
 
 enum NetworkEndPoint: String {
     case BASE_URL = "https://api.themoviedb.org/3/"
-    case API_KEY = "api_key=c87892a569d35450fcbb3cff10214986"
+    case API_KEY = "api_key=24b16e5b23b18708f6570f9ad838a7aa"
 }
 
 class NetworkHelper {

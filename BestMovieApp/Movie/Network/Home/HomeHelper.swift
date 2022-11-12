@@ -13,7 +13,6 @@ enum HomeEndPoint: String {
     var path: String {
         switch self {
         case .nowPlaying:
-            
             return NetworkHelper.shared.requestUrl(url: HomeEndPoint.nowPlaying.rawValue)
         }
     }

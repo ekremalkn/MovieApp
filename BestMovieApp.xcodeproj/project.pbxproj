@@ -25,6 +25,7 @@
 		F0B9533B291E5AF70067D68C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0B95339291E5AF70067D68C /* LaunchScreen.storyboard */; };
 		F0B9534A291E5E040067D68C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B95349291E5E040067D68C /* NetworkManager.swift */; };
 		F0B9534E291E64A40067D68C /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9534D291E64A40067D68C /* TabBar.swift */; };
+		F0D38AD5291FB05F005C8D8B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F0D38AD4291FB05F005C8D8B /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D38AD5291FB05F005C8D8B /* SDWebImage in Frameworks */,
 				A2EF46BF932BC0E68AB4D8AB /* libPods-BestMovieApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +211,7 @@
 		F0B95348291E5B6E0067D68C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0D38AD6291FDC0D005C8D8B /* Header */,
 				F0B95332291E5AF50067D68C /* HomeController.swift */,
 			);
 			path = View;
@@ -236,6 +239,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F0D38AD6291FDC0D005C8D8B /* Header */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +263,9 @@
 			dependencies = (
 			);
 			name = BestMovieApp;
+			packageProductDependencies = (
+				F0D38AD4291FB05F005C8D8B /* SDWebImage */,
+			);
 			productName = BestMovieApp;
 			productReference = F0B9532B291E5AF50067D68C /* BestMovieApp.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +294,9 @@
 				Base,
 			);
 			mainGroup = F0B95322291E5AF50067D68C;
+			packageReferences = (
+				F0D38AD3291FB05F005C8D8B /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = F0B9532C291E5AF50067D68C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -568,6 +584,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F0D38AD3291FB05F005C8D8B /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F0D38AD4291FB05F005C8D8B /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0D38AD3291FB05F005C8D8B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F0B95323291E5AF50067D68C /* Project object */;
 }

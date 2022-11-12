@@ -21,6 +21,7 @@ class HomeController: UIViewController {
     
     private func collectionSetup() {
         collectionView.register(UINib(nibName: "\(TopMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TopMovieCell.self)")
+        
     }
     
     private func viewModelConfiguration() {
@@ -39,11 +40,10 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TopMovieCell.self)", for: indexPath) as! TopMovieCell
-        print(homeViewModel.movies?.results?[indexPath.item].title ?? "")
         if let movie = homeViewModel.movies?.results?[indexPath.item] {
             cell.configure(data: movie)
-        }
-        
+            }
+   
         return cell
     }
     
