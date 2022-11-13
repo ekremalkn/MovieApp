@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-protocol MovieCellProtocol {
+protocol HorizontalMovieCellProtocol {
     var posterImage: String { get }
     var titleText: String { get }
     var releaseText: String { get }
@@ -15,22 +15,21 @@ protocol MovieCellProtocol {
 }
 class TopMovieCell: UICollectionViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var releaseLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var releaseLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var movieImage1: UIImageView!
    
     
-    func configure(data: MovieCellProtocol) {
+    func configure(data: HorizontalMovieCellProtocol) {
         titleLabel.text = data.titleText
         ratingLabel.text = data.ratingText
         releaseLabel.text = data.releaseText
         movieImage1.sd_setImage(with: URL(string: data.posterImage)!)
-        
-        
-        
      
     }
+    
+    
     
     
 }

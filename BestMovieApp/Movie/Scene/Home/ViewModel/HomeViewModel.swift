@@ -11,14 +11,25 @@ class HomeViewModel {
     let manager = HomeManager.shared
     
     var movies: Movies?
+    var nowPlayingItems = [MovieResult]()
   
-    func getCategoryItems() {
-        manager.getCategoryMovies { movies in
+    func getNowPlaying() {
+        manager.getCategoryMovies(type: .nowPlaying) { movies in
+            if let movies = movies {
+                self.nowPlayingItems = movies.results ?? []
+            }
+        } onError: { error in
+            print("Error while getting .nowPlaying list \(error)")
+        }
+
+    }
+    func getPopuler() {
+        manager.getCategoryMovies(type: .popular) { movies in
             self.movies = movies
             
             
         } onError: { error in
-            print(error)
+            print("Error while getting CategoryMovies list \(error)")
             
         }
 

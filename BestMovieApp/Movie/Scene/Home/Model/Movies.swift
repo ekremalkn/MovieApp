@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Movies
 struct Movies: Codable {
     let page: Int?
-    let results: [MovieResults]?
+    let results: [MovieResult]?
     let totalPages, totalResults: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -21,8 +21,9 @@ struct Movies: Codable {
     }
 }
 
-// MARK: - MovieResults
-struct MovieResults: Codable, MovieCellProtocol {
+// MARK: - MovieResult
+struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol {
+  
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -34,6 +35,7 @@ struct MovieResults: Codable, MovieCellProtocol {
     let voteAverage: Double?
     let voteCount: Int?
     
+    //MARK: - HorizantalMovieCellProtocol
     var titleText: String {
         originalTitle ?? ""
     }
@@ -48,11 +50,24 @@ struct MovieResults: Codable, MovieCellProtocol {
         }
         return ""
     }
-
     
     var posterImage: String {
     "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
+    
+    //MARK: - VerticalMovieCellProtocol
+    var headerImage: String {
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
+    
+    var headerTitle: String {
+        originalTitle ?? ""
+    }
+    
+    var headerRelease: String{
+        releaseDate ?? ""
+    }
+
 
     enum CodingKeys: String, CodingKey {
         case adult
