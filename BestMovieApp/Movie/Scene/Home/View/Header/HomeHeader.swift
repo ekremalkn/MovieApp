@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeHeader: UICollectionReusableView {
     @IBOutlet private weak var collection: UICollectionView!
@@ -14,24 +15,20 @@ class HomeHeader: UICollectionReusableView {
     var items = [MovieResult]()
     
     override func layoutSubviews() {
-
         collection.register(UINib(nibName: "\(VerticalMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(VerticalMovieCell.self)")
     }
-    
+   
     func configure(data: [MovieResult]) {
         items = data
         collection.reloadData()
-        
     }
     
     }
-    
 
 
-
-
-extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("3")
         return items.count
     }
     
@@ -40,6 +37,7 @@ extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.configure(data: items[indexPath.item])
         return cell
     }
+    
     
 }
     

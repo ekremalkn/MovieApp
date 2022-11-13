@@ -12,22 +12,28 @@ class HomeController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
     
      var homeViewModel = HomeViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionSetup()
         viewModelConfiguration()
+
     }
     
     private func collectionSetup() {
         collection.register(UINib(nibName: "\(TopMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TopMovieCell.self)")
         collection.register(UINib(nibName: "\(HomeHeader.self)", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)")
+ 
     }
     
     private func viewModelConfiguration() {
-        homeViewModel.getPopuler()
+        homeViewModel.getPopular()
         homeViewModel.getNowPlaying()
-        collection.reloadData()
+        homeViewModel.successCallback = { [weak self] in
+            self?.collection.reloadData()
+            
+        }
+
+
         
     }
     
@@ -36,7 +42,9 @@ class HomeController: UIViewController {
 }
 
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return homeViewModel.movies?.results?.count ?? 20
     }
     
@@ -52,8 +60,13 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)", for: indexPath) as! HomeHeader
         header.configure(data: homeViewModel.nowPlayingItems)
         return header
+        
     }
+   
     
+    
+
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 150)
     }
