@@ -8,7 +8,6 @@
 import UIKit
 
 class HomeController: UIViewController {
-
     @IBOutlet private weak var collection: UICollectionView!
     
      var homeViewModel = HomeViewModel()
@@ -16,11 +15,10 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         collectionSetup()
         viewModelConfiguration()
-
     }
     
     private func collectionSetup() {
-        collection.register(UINib(nibName: "\(TopMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TopMovieCell.self)")
+        collection.register(UINib(nibName: "\(HorizontalMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(HorizontalMovieCell.self)")
         collection.register(UINib(nibName: "\(HomeHeader.self)", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)")
  
     }
@@ -41,18 +39,19 @@ class HomeController: UIViewController {
    
 }
 
+//MARK: - CollectionViewMethods
+
 extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return homeViewModel.movies?.results?.count ?? 20
+        return homeViewModel.popularItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TopMovieCell.self)", for: indexPath) as! TopMovieCell
-        if let movie = homeViewModel.movies?.results?[indexPath.item] {
-            cell.configure(data: movie)
-            }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(HorizontalMovieCell.self)", for: indexPath) as! HorizontalMovieCell
+            cell.layer.cornerRadius = 25
+            cell.configure(data: homeViewModel.popularItems[indexPath.row])
+            
         return cell
     }
     
@@ -64,9 +63,6 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
    
     
-    
-
-        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 150)
     }
@@ -74,6 +70,9 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
        return CGSize(width: collectionView.frame.width, height: 365)
     }
+
+        
+   
     
 }
 

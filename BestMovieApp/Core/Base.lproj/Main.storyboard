@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="fFF-Nd-YtM"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wyy-Nu-6Ar"/>
                 </viewController>
@@ -90,7 +89,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aYD-au-xgQ">
                                 <rect key="frame" x="0.0" y="91" width="390" height="670"/>
-                                <color key="backgroundColor" red="0.30491021280000002" green="0.29421314599999998" blue="0.27711382509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="18" minimumInteritemSpacing="18" id="mZ7-fD-OOV">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -105,7 +104,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aYD-au-xgQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3YX-lO-3Hr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aYD-au-xgQ" secondAttribute="bottom" id="OHi-tA-Itn"/>
@@ -146,25 +145,57 @@
                     <view key="view" contentMode="scaleToFill" id="8mT-0w-IWN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K4n-01-shL">
+                                <rect key="frame" x="0.0" y="135" width="390" height="626"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gBe-wu-wAH">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="p6y-ta-7FP" id="fK9-QB-yCV"/>
+                                    <outlet property="delegate" destination="p6y-ta-7FP" id="hNu-Ve-dJK"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-Lh-PUs">
+                                <rect key="frame" x="0.0" y="91" width="390" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="p6y-ta-7FP" id="sHp-Q5-hjY"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Uxd-ki-EiX"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Equ-Lh-PUs" firstAttribute="trailing" secondItem="Uxd-ki-EiX" secondAttribute="trailing" id="1LF-kO-xT0"/>
+                            <constraint firstItem="K4n-01-shL" firstAttribute="top" secondItem="Uxd-ki-EiX" secondAttribute="top" constant="44" id="7Ld-B6-Kmv"/>
+                            <constraint firstItem="Equ-Lh-PUs" firstAttribute="top" secondItem="Uxd-ki-EiX" secondAttribute="top" id="DQy-qL-l7l"/>
+                            <constraint firstItem="K4n-01-shL" firstAttribute="top" secondItem="Equ-Lh-PUs" secondAttribute="bottom" id="GTp-p1-fb0"/>
+                            <constraint firstItem="Equ-Lh-PUs" firstAttribute="leading" secondItem="Uxd-ki-EiX" secondAttribute="leading" id="MpL-A3-DUG"/>
+                            <constraint firstItem="K4n-01-shL" firstAttribute="bottom" secondItem="Uxd-ki-EiX" secondAttribute="bottom" id="RiJ-n0-3jF"/>
+                            <constraint firstItem="K4n-01-shL" firstAttribute="trailing" secondItem="Uxd-ki-EiX" secondAttribute="trailing" id="a6P-Ys-90F"/>
+                            <constraint firstItem="K4n-01-shL" firstAttribute="leading" secondItem="Uxd-ki-EiX" secondAttribute="leading" id="kKg-KS-SXw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kPr-e6-H5N"/>
+                    <connections>
+                        <outlet property="collection" destination="K4n-01-shL" id="kC6-Ym-WqB"/>
+                        <outlet property="searchBar" destination="Equ-Lh-PUs" id="hRU-9M-d4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMA-sK-wDs" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="104"/>
+            <point key="canvasLocation" x="913.84615384615381" y="103.7914691943128"/>
         </scene>
     </scenes>
     <resources>
         <image name="Home" width="33" height="46"/>
         <image name="Search" width="38" height="46"/>
         <image name="WatchList" width="54" height="46"/>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

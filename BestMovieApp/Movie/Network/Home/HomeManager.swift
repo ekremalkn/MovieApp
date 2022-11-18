@@ -21,15 +21,15 @@ class HomeManager: HomeManagerProtocol {
         var url = ""
         switch type {
         case .nowPlaying:
-            url = HomeEndPoint.nowPlaying.path
+            url = HomeEndpoint.nowPlaying.path
         case .latest:
-            url = HomeEndPoint.latest.path
+            url = HomeEndpoint.latest.path
         case .popular:
-            url = HomeEndPoint.popular.path
+            url = HomeEndpoint.popular.path
         case .topRated:
-            url = HomeEndPoint.topRated.path
+            url = HomeEndpoint.topRated.path
         case .upcoming:
-            url = HomeEndPoint.upcoming.path
+            url = HomeEndpoint.upcoming.path
         }
         NetworkManager.shared.request(path: url) { (response: Movies) in
             onSuccess(response)

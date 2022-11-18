@@ -10,7 +10,6 @@ import SDWebImage
 
 class HomeHeader: UICollectionReusableView {
     @IBOutlet private weak var collection: UICollectionView!
-    @IBOutlet private weak var topView: UIView!
     
     var items = [MovieResult]()
     
@@ -25,18 +24,26 @@ class HomeHeader: UICollectionReusableView {
     
     }
 
+//MARK: - CollectionViewMethods
 
-extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource{
+extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("3")
         return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(VerticalMovieCell.self)", for: indexPath) as! VerticalMovieCell
         cell.configure(data: items[indexPath.item])
+        cell.layer.cornerRadius = 25
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width * 143 / 375
+        let height = collectionView.frame.height * 283 / 812
+        return CGSize(width: width, height: collectionView.frame.height)
+    }
+  
     
     
 }

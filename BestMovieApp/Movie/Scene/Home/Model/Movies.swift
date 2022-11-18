@@ -22,8 +22,7 @@ struct Movies: Codable {
 }
 
 // MARK: - MovieResult
-struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol {
-  
+struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -36,37 +35,50 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     let voteCount: Int?
     
     //MARK: - HorizantalMovieCellProtocol
-    var titleText: String {
+    var horizontalCellTitle: String {
         originalTitle ?? ""
     }
     
-    var releaseText: String {
+    var horizontalCellRelease: String {
         releaseDate ?? ""
     }
     
-    var ratingText: String {
+    var horizontalCellRating: String {
         if let voteAverage = voteAverage {
              return "\(voteAverage)"
         }
         return ""
     }
     
-    var posterImage: String {
+    var horizontalCellImage: String {
     "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
     
     //MARK: - VerticalMovieCellProtocol
-    var headerImage: String {
+    var verticalCellImage: String {
         "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
     
-    var headerTitle: String {
+    var verticalCellTitle: String {
         originalTitle ?? ""
     }
     
-    var headerRelease: String{
+    var verticalCellRelease: String{
         releaseDate ?? ""
     }
+    
+    //MARK: - SearchMovieCellProtocol
+
+    var searchCellImage: String {
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
+    
+    var searchCellTitle: String {
+        originalTitle ?? ""
+    }
+
+    
+  
 
 
     enum CodingKeys: String, CodingKey {
