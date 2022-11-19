@@ -14,13 +14,13 @@ class SearchController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
     
     var searchViewModel = SearchViewModel()
-    var filteredData = [MovieResult]()
+    
    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchViewModel.getMovies()
+        
         collectionSetup()
         viewModelConfiguration()
         
@@ -46,12 +46,13 @@ class SearchController: UIViewController {
 //MARK: - SearchBarMethods
 
 extension SearchController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    
+        searchViewModel.text = searchText
+        searchViewModel.getMovies()
+        DispatchQueue.main.async {
+            self.collection.reloadData()
+        }
+      
     }
     
 }
@@ -71,6 +72,7 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         return cell
         
     }
+    
     
     
 }

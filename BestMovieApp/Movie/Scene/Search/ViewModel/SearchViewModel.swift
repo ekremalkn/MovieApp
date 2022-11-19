@@ -16,7 +16,7 @@ class SearchViewModel {
     var successCallback: (()->())?
     
     func getMovies() {
-        SearchManager.shared.getSearchItems(type: .popular) { movies in
+        SearchManager.shared.getSearchItems(text: text) { movies in
             if let movies = movies {
                 self.movieItems = movies.results ?? []
                 self.successCallback?()

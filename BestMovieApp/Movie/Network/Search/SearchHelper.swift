@@ -8,7 +8,7 @@
 import Foundation
 
 enum SearchEndpoint: String {
-    case search = "movie/popular?"
+    case search = "search/movie?"
     
     var path: String {
         switch self {
