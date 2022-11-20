@@ -13,14 +13,11 @@ class SearchController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var collection: UICollectionView!
     
-    var searchViewModel = SearchViewModel()
-    
-   
-    
-    
+    private var searchViewModel = SearchViewModel()
+    private var detailViewConfigure = DetailViewController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionSetup()
         viewModelConfiguration()
         
@@ -73,6 +70,23 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        dismiss(animated: true) {
+            DispatchQueue.main.async {
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailController") as! DetailViewController
+                    self.navigationController?.show(controller, sender: nil)
+            
+            self.detailViewConfigure.detailView.configure(data: self.searchViewModel.movieItems[indexPath.row])
+            
+        }
+        
+      
+    
+        
+    }
+    
     
     
 }
+
+

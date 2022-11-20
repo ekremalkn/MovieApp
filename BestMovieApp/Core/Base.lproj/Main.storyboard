@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -121,20 +122,26 @@
             </objects>
             <point key="canvasLocation" x="913.84615384615381" y="-650.47393364928905"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="Hry-Ig-Sbw">
             <objects>
-                <viewController storyboardIdentifier="detailVC" id="FJA-dm-Oa5" customClass="DetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6vG-Gh-6TX">
+                <viewController storyboardIdentifier="DetailController" id="FJA-dm-Oa5" customClass="DetailViewController" customModule="BestMovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Kv-RA-IwW" customClass="DetailMovieView" customModule="BestMovieApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Ie2-5M-Bbk"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="h1a-iI-kB8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Detail" id="5LJ-js-foy">
+                        <barButtonItem key="rightBarButtonItem" image="Save" id="YkX-mb-qtG"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailView" destination="1Kv-RA-IwW" id="sBE-Mx-K5X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cot-h2-dGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="-643"/>
+            <point key="canvasLocation" x="2713.8461538461538" y="103.7914691943128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EhZ-c2-DBH">
@@ -153,7 +160,7 @@
             </objects>
             <point key="canvasLocation" x="100" y="104"/>
         </scene>
-        <!--Search Controller-->
+        <!--Search Movies-->
         <scene sceneID="HfC-bP-YDi">
             <objects>
                 <viewController storyboardIdentifier="SearchController" modalPresentationStyle="overFullScreen" id="p6y-ta-7FP" customClass="SearchController" customModule="BestMovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,7 +204,9 @@
                             <constraint firstItem="K4n-01-shL" firstAttribute="leading" secondItem="Uxd-ki-EiX" secondAttribute="leading" id="kKg-KS-SXw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kPr-e6-H5N"/>
+                    <navigationItem key="navigationItem" title="Search Movies" id="kPr-e6-H5N">
+                        <barButtonItem key="backBarButtonItem" title="Back To Search" id="WiC-DV-S77"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collection" destination="K4n-01-shL" id="kC6-Ym-WqB"/>
                         <outlet property="searchBar" destination="Equ-Lh-PUs" id="hRU-9M-d4O"/>
@@ -207,10 +216,32 @@
             </objects>
             <point key="canvasLocation" x="914" y="104"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Blc-rX-HM1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AIV-Fp-WrL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tA7-IU-K6k">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FJA-dm-Oa5" kind="relationship" relationship="rootViewController" id="uJR-ej-wgb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6zk-VJ-0pF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.6153846153845" y="103.7914691943128"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Home" width="33" height="46"/>
+        <image name="Save" width="22" height="24"/>
         <image name="Search" width="38" height="46"/>
         <image name="WatchList" width="54" height="46"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

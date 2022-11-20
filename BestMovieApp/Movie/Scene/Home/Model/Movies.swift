@@ -22,7 +22,8 @@ struct Movies: Codable {
 }
 
 // MARK: - MovieResult
-struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol {
+struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol, DetailMovieViewProtocol {
+
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -76,6 +77,36 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     var searchCellTitle: String {
         originalTitle ?? ""
     }
+    
+    //MARK: - DetailMovieViewProtocol
+
+    var detailViewBigImage: String {
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
+    
+    var detailViewSmallImage: String {
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
+    
+    var detailViewTitle: String {
+        originalTitle ?? ""
+    }
+    
+    var detailViewRate: String {
+        if let voteAverage = voteAverage {
+             return "\(voteAverage)"
+        }
+        return ""
+    }
+    
+    var detailViewRelease: String {
+        releaseDate ?? ""
+    }
+    
+    var detailViewOverview: String {
+        overview ?? ""
+    }
+    
 
     
   

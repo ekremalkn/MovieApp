@@ -6,15 +6,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
+    
+    @IBOutlet var detailView: DetailMovieView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
     }
     
+ 
+    
+    
+  
+   
+
+    
+        
 
 
 

@@ -55,6 +55,8 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
         return cell
     }
     
+   
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)", for: indexPath) as! HomeHeader
         header.configure(data: homeViewModel.nowPlayingItems)
