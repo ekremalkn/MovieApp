@@ -36,9 +36,6 @@ class HomeManager: HomeManagerProtocol {
         } onError: { error in
             onError(error)
         }
-
     }
-    
-
 }
 

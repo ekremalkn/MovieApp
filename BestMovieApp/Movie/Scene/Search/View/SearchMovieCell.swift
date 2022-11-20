@@ -21,7 +21,7 @@ class SearchMovieCell: UICollectionViewCell {
         movieImage.sd_setImage(with: URL(string: data.searchCellImage))
         movieImage.layer.cornerRadius = 16
     }
-       
-    }
+    
+}
 
 

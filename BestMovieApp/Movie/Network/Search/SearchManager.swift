@@ -20,9 +20,5 @@ class SearchManager: SearchManagerProtocol {
         } onError: { error in
             onError(error)
         }
-
-        
     }
-    
-    
 }

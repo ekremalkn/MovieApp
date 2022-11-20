@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 class HomeHeader: UICollectionReusableView {
+    
     @IBOutlet private weak var collection: UICollectionView!
     
     var items = [MovieResult]()
@@ -16,13 +17,13 @@ class HomeHeader: UICollectionReusableView {
     override func layoutSubviews() {
         collection.register(UINib(nibName: "\(VerticalMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(VerticalMovieCell.self)")
     }
-   
+    
     func configure(data: [MovieResult]) {
         items = data
         collection.reloadData()
     }
     
-    }
+}
 
 //MARK: - CollectionViewMethods
 
@@ -39,19 +40,16 @@ extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     
-    
-   
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width * 143 / 375
         let height = collectionView.frame.height * 283 / 812
         return CGSize(width: width, height: collectionView.frame.height)
     }
-  
+    
     
     
 }
-    
-    
-    
-    
+
+
+
+

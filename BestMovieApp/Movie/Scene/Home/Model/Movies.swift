@@ -13,7 +13,7 @@ struct Movies: Codable {
     let page: Int?
     let results: [MovieResult]?
     let totalPages, totalResults: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case page, results
         case totalPages = "total_pages"
@@ -23,7 +23,7 @@ struct Movies: Codable {
 
 // MARK: - MovieResult
 struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol, DetailMovieViewProtocol {
-
+    
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -46,13 +46,13 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     
     var horizontalCellRating: String {
         if let voteAverage = voteAverage {
-             return "\(voteAverage)"
+            return "\(voteAverage)"
         }
         return ""
     }
     
     var horizontalCellImage: String {
-    "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
     
     //MARK: - VerticalMovieCellProtocol
@@ -69,7 +69,7 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     
     //MARK: - SearchMovieCellProtocol
-
+    
     var searchCellImage: String {
         "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
@@ -79,7 +79,7 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     
     //MARK: - DetailMovieViewProtocol
-
+    
     var detailViewBigImage: String {
         "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
@@ -94,7 +94,7 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     
     var detailViewRate: String {
         if let voteAverage = voteAverage {
-             return "\(voteAverage)"
+            return "\(voteAverage)"
         }
         return ""
     }
@@ -106,11 +106,6 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     var detailViewOverview: String {
         overview ?? ""
     }
-    
-
-    
-  
-
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -128,6 +123,3 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
 }
 
-
-
-/* */

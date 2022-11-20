@@ -9,13 +9,11 @@ import UIKit
 
 class SearchController: UIViewController {
     
-    
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var collection: UICollectionView!
     
     private var searchViewModel = SearchViewModel()
-    private var detailViewConfigure = DetailViewController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionSetup()
@@ -33,11 +31,7 @@ class SearchController: UIViewController {
             self?.collection.reloadData()
             
         }
-        
-        
-        
     }
-    
 }
 
 //MARK: - SearchBarMethods
@@ -49,9 +43,7 @@ extension SearchController: UISearchBarDelegate {
         DispatchQueue.main.async {
             self.collection.reloadData()
         }
-      
     }
-    
 }
 
 //MARK: - CollectionViewMethods
@@ -59,7 +51,7 @@ extension SearchController: UISearchBarDelegate {
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchViewModel.movieItems.count
- 
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,20 +64,13 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         dismiss(animated: true) {
-            DispatchQueue.main.async {
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailController") as! DetailViewController
-                    self.navigationController?.show(controller, sender: nil)
-            
-            self.detailViewConfigure.detailView.configure(data: self.searchViewModel.movieItems[indexPath.row])
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailController") as! DetailViewController
+            self.present(controller, animated: true, completion: nil)
+            controller.configure(data: self.searchViewModel.movieItems[indexPath.row])
             
         }
         
-      
-    
-        
     }
-    
-    
     
 }
 
