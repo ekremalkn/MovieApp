@@ -19,4 +19,5 @@ class NetworkHelper {
     func requestUrl(url: String) -> String {
         return "\(NetworkEndPoint.BASE_URL.rawValue)\(url)\(NetworkEndPoint.API_KEY.rawValue)"
     }
+    
 }

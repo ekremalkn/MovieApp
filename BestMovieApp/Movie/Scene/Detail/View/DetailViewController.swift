@@ -15,29 +15,62 @@ protocol DetailMovieViewProtocol {
     var detailViewRate: String { get }
     var detailViewRelease: String { get }
     var detailViewOverview: String { get }
+    var detailViewId: Int { get }
     
 }
 
 class DetailViewController: UIViewController {
-    @IBOutlet weak var bigMovieImage: UIImageView!
-    @IBOutlet weak var smallMovieImage: UIImageView!
+    
+    
+    var detailViewModel = DetailViewModel()
+    
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var firstMovieImage: UIImageView!
     @IBOutlet weak var releaseLabel: UILabel!
+    @IBOutlet weak var secondMovieImage: UIImageView!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var rateLabel: UILabel!
+     
+    @IBOutlet weak var favoriteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    //MARK: - Action Buttons
+    @IBAction func favoriteButtonPressed(_ sender: Any) {
+        favoriteButton.isSelected.toggle()
+    }
+    
+    
+    @IBAction func openDetailLink(_ sender: Any) {
+        UIApplication.shared.open(URL(string: (detailViewModel.detailMovieLink?.ca?.link)!)!)
+    }
+    
+    //MARK: - UI Button Configure
+    func configureUI() {
+        let image = UIImage(named: "favorite")
+        let imageFilled = UIImage(named: "favorite-filled")
+        favoriteButton.setImage(image, for: .normal)
+        favoriteButton.setImage(imageFilled, for: .selected)
+    }
+
     func configure(data: DetailMovieViewProtocol) {
+        configureUI()
+        
+        detailViewModel.id = data.detailViewId
+        detailViewModel.getDetailLink()
+        
         titleLabel.text = data.detailViewTitle
         releaseLabel.text = data.detailViewRelease
         rateLabel.text = data.detailViewRate
         overviewLabel.text = data.detailViewOverview
-        bigMovieImage.sd_setImage(with: URL(string: data.detailViewBigImage))
-        smallMovieImage.sd_setImage(with: URL(string: data.detailViewSmallImage))
-        smallMovieImage.layer.cornerRadius = 16
+        firstMovieImage.sd_setImage(with: URL(string: data.detailViewBigImage))
+        secondMovieImage.sd_setImage(with: URL(string: data.detailViewSmallImage))
+        secondMovieImage.layer.cornerRadius = 16
     }
     
+   
+    
+  
 }

@@ -23,7 +23,7 @@ struct Movies: Codable {
 
 // MARK: - MovieResult
 struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol, DetailMovieViewProtocol {
-    
+  
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -79,6 +79,9 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     
     //MARK: - DetailMovieViewProtocol
+    var detailViewId: Int {
+        id ?? 0
+    }
     
     var detailViewBigImage: String {
         "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"

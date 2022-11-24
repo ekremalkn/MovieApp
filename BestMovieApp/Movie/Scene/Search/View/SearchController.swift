@@ -12,6 +12,7 @@ class SearchController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var collection: UICollectionView!
     
+    
     private var searchViewModel = SearchViewModel()
     
     override func viewDidLoad() {
@@ -63,13 +64,11 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        dismiss(animated: true) {
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailController") as! DetailViewController
-            self.present(controller, animated: true, completion: nil)
-            controller.configure(data: self.searchViewModel.movieItems[indexPath.row])
-            
-        }
-        
+        let controller = DetailViewController()
+        let bundle = Bundle(for: type(of: controller))
+        bundle.loadNibNamed("DetailViewController", owner: controller, options: nil)
+        self.navigationController?.pushViewController(controller, animated: true)
+        controller.configure(data: searchViewModel.movieItems[indexPath.row])
     }
     
 }

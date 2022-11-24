@@ -15,6 +15,7 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         collectionSetup()
         viewModelConfiguration()
+        
     }
     
     private func collectionSetup() {
@@ -57,12 +58,17 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        dismiss(animated: true) {
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailController") as! DetailViewController
-            self.present(controller, animated: true, completion: nil)
-            controller.configure(data: self.homeViewModel.popularItems[indexPath.row])
+  
+        let controller = DetailViewController()
+        let bundle = Bundle(for: type(of: controller))
+        bundle.loadNibNamed("DetailViewController", owner: controller, options: nil)
+        self.navigationController?.show(controller, sender: nil)
+        controller.configure(data: homeViewModel.popularItems[indexPath.row])
+        
             
-        }
+           
+            
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -77,6 +83,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     
 }
+
 
 
 

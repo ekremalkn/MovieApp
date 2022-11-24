@@ -8,7 +8,7 @@
 import Foundation
 
 class SearchViewModel {
-    var items: Movies?
+    let manager = SearchManager.shared
     var movieItems = [MovieResult]()
     
     var text = ""
@@ -16,7 +16,7 @@ class SearchViewModel {
     var successCallback: (()->())?
     
     func getMovies() {
-        SearchManager.shared.getSearchItems(text: text) { movies in
+        manager.getSearchItems(text: text) { movies in
             if let movies = movies {
                 self.movieItems = movies.results ?? []
                 self.successCallback?()
