@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="BestMovieApp" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImage" destination="W2H-v6-D6O" id="a0r-d6-QRN"/>
                 <outlet property="favoriteButton" destination="Amb-QS-kuc" id="N0r-Iv-ToE"/>
                 <outlet property="firstMovieImage" destination="CXR-dS-qVY" id="k6C-5o-yfK"/>
                 <outlet property="overviewLabel" destination="NXf-Tg-9xS" id="ntc-gM-bnA"/>

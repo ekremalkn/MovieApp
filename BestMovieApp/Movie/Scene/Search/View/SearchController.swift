@@ -20,6 +20,7 @@ class SearchController: UIViewController {
         collectionSetup()
         viewModelConfiguration()
         
+        
     }
     
     private func collectionSetup() {
@@ -30,7 +31,6 @@ class SearchController: UIViewController {
     private func viewModelConfiguration() {
         searchViewModel.successCallback = { [weak self] in
             self?.collection.reloadData()
-            
         }
     }
 }
@@ -52,15 +52,14 @@ extension SearchController: UISearchBarDelegate {
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchViewModel.movieItems.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(SearchMovieCell.self)", for: indexPath) as! SearchMovieCell
         cell.layer.cornerRadius = 16
         cell.configure(data: searchViewModel.movieItems[indexPath.row])
-        return cell
         
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -68,6 +67,7 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         let bundle = Bundle(for: type(of: controller))
         bundle.loadNibNamed("DetailViewController", owner: controller, options: nil)
         self.navigationController?.pushViewController(controller, animated: true)
+        controller.getDataForWathcList(data: searchViewModel.movieItems[indexPath.row])
         controller.configure(data: searchViewModel.movieItems[indexPath.row])
     }
     

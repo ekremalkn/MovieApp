@@ -19,18 +19,19 @@ class HomeViewModel {
     var upComingItems = [MovieResult]()
     var errorCallback: ((String)->())?
     var successCallback: (()->())?
-
+    
+    
+    //MARK: - Getting data to Model
+    
     func getNowPlaying() {
         manager.getCategoryMovies(type: .nowPlaying) { movies in
             if let movies = movies {
                 self.nowPlayingItems = movies.results ?? []
                 self.successCallback?()
-
             }
         } onError: { error in
             print("Error while getting .nowPlaying list \(error)")
         }
-
     }
     
     func getPopular() {
@@ -39,12 +40,9 @@ class HomeViewModel {
                 self.popularItems = movies.results ?? []
                 self.successCallback?()
             }
-            
         } onError: { error in
             print("Error while getting PopularMovies list \(error)")
-            
         }
-
     }
     
     func getLatest() {
@@ -53,12 +51,10 @@ class HomeViewModel {
                 self.latestItems = movies.results ?? []
                 self.successCallback?()
             }
-            
         } onError: { error in
             print("Error while getting LatestMovies list \(error)")
-            
         }
-
+        
     }
     
     func getTopRated() {
@@ -67,12 +63,9 @@ class HomeViewModel {
                 self.topRatedItems = movies.results ?? []
                 self.successCallback?()
             }
-            
         } onError: { error in
             print("Error while getting TopRatedMovies list \(error)")
-            
         }
-
     }
     
     func getUpComimg() {
@@ -86,10 +79,10 @@ class HomeViewModel {
             print("Error while getting UpComingMovies list \(error)")
             
         }
-
+        
     }
     
-
+    
     
     
 }

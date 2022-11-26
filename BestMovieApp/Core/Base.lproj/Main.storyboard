@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Watch List Controller-->
+        <!--Watchlist-->
         <scene sceneID="y2W-RG-pP5">
             <objects>
                 <viewController storyboardIdentifier="WatchListController" modalPresentationStyle="overFullScreen" id="VSd-YC-tjP" customClass="WatchListController" customModule="BestMovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                             <constraint firstItem="fFF-Nd-YtM" firstAttribute="bottom" secondItem="3VZ-eJ-VIa" secondAttribute="bottom" id="re6-wd-9t0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Wyy-Nu-6Ar"/>
+                    <navigationItem key="navigationItem" title="Watchlist" largeTitleDisplayMode="always" style="browser" id="Wyy-Nu-6Ar"/>
                     <connections>
                         <outlet property="collection" destination="3VZ-eJ-VIa" id="DnL-6y-ZN1"/>
                     </connections>
@@ -187,8 +187,10 @@
                                     <outlet property="delegate" destination="p6y-ta-7FP" id="hNu-Ve-dJK"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-Lh-PUs">
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-Lh-PUs">
                                 <rect key="frame" x="0.0" y="91" width="390" height="44"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="p6y-ta-7FP" id="sHp-Q5-hjY"/>

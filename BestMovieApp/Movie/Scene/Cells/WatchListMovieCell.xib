@@ -104,6 +104,12 @@
                 <constraint firstAttribute="bottom" secondItem="w10-FL-MLz" secondAttribute="bottom" constant="91" id="x5K-lt-p6M"/>
                 <constraint firstItem="47z-PG-KV7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yg0-Ur-yHe"/>
             </constraints>
+            <connections>
+                <outlet property="movieImage" destination="47z-PG-KV7" id="THY-2b-oe2"/>
+                <outlet property="rateLabel" destination="mq6-Si-ABZ" id="iCu-8H-U4i"/>
+                <outlet property="releaseLabel" destination="rAn-TQ-AGX" id="Bbn-jN-WQ6"/>
+                <outlet property="titleLabel" destination="w10-FL-MLz" id="Yzs-Eh-251"/>
+            </connections>
             <point key="canvasLocation" x="130.53435114503816" y="-32.394366197183103"/>
         </collectionViewCell>
     </objects>

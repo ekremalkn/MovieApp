@@ -23,7 +23,8 @@ struct Movies: Codable {
 
 // MARK: - MovieResult
 struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol, DetailMovieViewProtocol {
-  
+    
+    
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -109,7 +110,8 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     var detailViewOverview: String {
         overview ?? ""
     }
-
+    
+    
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"

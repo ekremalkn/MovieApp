@@ -4,6 +4,7 @@
 target 'BestMovieApp' do
   
    pod "Alamofire"
+   pod 'SwipeCellKit'
    
    
    

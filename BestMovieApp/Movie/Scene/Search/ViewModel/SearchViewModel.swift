@@ -15,6 +15,8 @@ class SearchViewModel {
     
     var successCallback: (()->())?
     
+    //MARK: - Getting data to Model
+
     func getMovies() {
         manager.getSearchItems(text: text) { movies in
             if let movies = movies {

@@ -11,11 +11,11 @@ class HomeController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
     
     var homeViewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionSetup()
         viewModelConfiguration()
-        
     }
     
     private func collectionSetup() {
@@ -49,7 +49,7 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
         
         return cell
     }
-   
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)", for: indexPath) as! HomeHeader
         header.configure(data: homeViewModel.nowPlayingItems)
@@ -58,17 +58,14 @@ extension HomeController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-  
+        
         let controller = DetailViewController()
         let bundle = Bundle(for: type(of: controller))
         bundle.loadNibNamed("DetailViewController", owner: controller, options: nil)
         self.navigationController?.show(controller, sender: nil)
+        controller.getDataForWathcList(data: homeViewModel.popularItems[indexPath.row])
         controller.configure(data: homeViewModel.popularItems[indexPath.row])
-        
-            
-           
-            
-        
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

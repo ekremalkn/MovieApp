@@ -12,7 +12,7 @@ class DetailViewModel {
     
     var id: Int!
     var detailMovieLink: DetailMovie?
-
+    
     var successCallback: (()->())?
     
     func getDetailLink() {
@@ -21,12 +21,11 @@ class DetailViewModel {
                 self.detailMovieLink = detailMovie.results
                 self.successCallback?()
             }
-            
         } onError: { error in
             print("Error while getting detailMovieLink \(error)")
         }
-
-
+        
+        
         
     }
 }
