@@ -34,4 +34,5 @@ https://user-images.githubusercontent.com/104379770/204159436-1f9995fd-9493-4d43
 ![Ekran Resmi 2022-11-27 20 01 32](https://user-images.githubusercontent.com/104379770/204159582-359ba8e9-4b34-49ae-83bd-0394702afea2.png)
 ![Ekran Resmi 2022-11-27 20 01 41](https://user-images.githubusercontent.com/104379770/204159583-54f81380-3d67-44b0-affb-64e9327cacf9.png)
 ![Ekran Resmi 2022-11-27 23 31 29](https://user-images.githubusercontent.com/104379770/204159585-d387bd9e-473f-4f01-b9a4-e8442d9517bc.png)
-
+![Ekran Resmi 2022-11-28 00 08 00](https://user-images.githubusercontent.com/104379770/204159797-35095885-2032-46e5-8dc3-735097fdb580.png)
+![Ekran Resmi 2022-11-28 00 05 38](https://user-images.githubusercontent.com/104379770/204159805-050f1d6c-ac71-4d44-9ef6-08b80a9af1ee.png)
