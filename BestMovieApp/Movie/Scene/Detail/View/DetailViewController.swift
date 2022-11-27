@@ -50,14 +50,10 @@ class DetailViewController: UIViewController {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-                
             }
-            
         } else {
-            
+            return
         }
-        
-        
     }
     
     
@@ -85,7 +81,7 @@ class DetailViewController: UIViewController {
     //MARK: - Configure variables
     
     func configureInWatchList(data: MovieResultItem) {
-        configureUI()
+        
         
         titleLabel.text = data.originalTitle
         rateLabel.text = "\(data.voteAverage)"
@@ -93,7 +89,7 @@ class DetailViewController: UIViewController {
         overviewLabel.text = data.overview
         firstMovieImage.sd_setImage(with: URL(string:"https://image.tmdb.org/t/p/original/\(data.posterPath!)" ))
         secondMovieImage.sd_setImage(with: URL(string:"https://image.tmdb.org/t/p/original/\(data.posterPath!)" ))
-        
+        secondMovieImage.layer.cornerRadius = 16
     }
     
     func configure(data: DetailMovieViewProtocol) {
@@ -101,7 +97,6 @@ class DetailViewController: UIViewController {
         
         detailViewModel.id = data.detailViewId
         detailViewModel.getDetailLink()
-        
         
         titleLabel.text = data.detailViewTitle
         releaseLabel.text = data.detailViewRelease
@@ -111,6 +106,6 @@ class DetailViewController: UIViewController {
         secondMovieImage.sd_setImage(with: URL(string: data.detailViewSmallImage))
         secondMovieImage.layer.cornerRadius = 16
     }
-
+    
 }
 

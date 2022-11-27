@@ -56,18 +56,6 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGz-cv-TLh">
-                        <rect key="frame" x="103" y="75" width="62" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="62" id="ZfY-jO-190"/>
-                            <constraint firstAttribute="height" constant="17" id="ckm-dz-x9E"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="See more &gt;">
-                            <color key="titleColor" red="0.97627621890000005" green="0.52928549049999996" blue="0.0094786537810000009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -78,21 +66,17 @@
                 <constraint firstItem="kPK-kq-O7G" firstAttribute="leading" secondItem="47z-PG-KV7" secondAttribute="trailing" constant="8" id="2yf-1z-iru"/>
                 <constraint firstAttribute="trailing" secondItem="kPK-kq-O7G" secondAttribute="trailing" constant="208" id="4MK-c8-JjN"/>
                 <constraint firstItem="w10-FL-MLz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="8Li-X3-kXT"/>
-                <constraint firstAttribute="trailing" secondItem="eGz-cv-TLh" secondAttribute="trailing" constant="162" id="Evw-XV-JNF"/>
-                <constraint firstItem="eGz-cv-TLh" firstAttribute="leading" secondItem="47z-PG-KV7" secondAttribute="trailing" constant="8" id="GLi-Kx-zcY"/>
                 <constraint firstAttribute="trailing" secondItem="47z-PG-KV7" secondAttribute="trailing" constant="232" id="J82-Vm-f3i"/>
                 <constraint firstAttribute="bottom" secondItem="rAn-TQ-AGX" secondAttribute="bottom" constant="42" id="QIf-ln-qe7"/>
                 <constraint firstItem="rAn-TQ-AGX" firstAttribute="centerY" secondItem="k1v-qr-jBb" secondAttribute="centerY" id="RsW-ZG-XXN"/>
                 <constraint firstItem="rAn-TQ-AGX" firstAttribute="leading" secondItem="k1v-qr-jBb" secondAttribute="trailing" constant="2" id="RwZ-Cr-MYz"/>
                 <constraint firstItem="mq6-Si-ABZ" firstAttribute="leading" secondItem="kPK-kq-O7G" secondAttribute="trailing" constant="2" id="S4M-lE-6JJ"/>
-                <constraint firstAttribute="bottom" secondItem="eGz-cv-TLh" secondAttribute="bottom" constant="28" id="UVt-ok-x9G"/>
                 <constraint firstItem="rAn-TQ-AGX" firstAttribute="top" secondItem="mq6-Si-ABZ" secondAttribute="bottom" constant="1" id="aqD-Yt-wUo"/>
                 <constraint firstAttribute="trailing" secondItem="mq6-Si-ABZ" secondAttribute="trailing" constant="129" id="dLT-ge-bZe"/>
                 <constraint firstItem="w10-FL-MLz" firstAttribute="leading" secondItem="47z-PG-KV7" secondAttribute="trailing" constant="8" id="euW-Xl-uJW"/>
                 <constraint firstAttribute="bottom" secondItem="k1v-qr-jBb" secondAttribute="bottom" constant="44" id="f3r-jN-emh"/>
                 <constraint firstAttribute="bottom" secondItem="mq6-Si-ABZ" secondAttribute="bottom" constant="65" id="ggH-AP-bIa"/>
                 <constraint firstItem="47z-PG-KV7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ijQ-qX-XSu"/>
-                <constraint firstItem="eGz-cv-TLh" firstAttribute="top" secondItem="k1v-qr-jBb" secondAttribute="bottom" id="jbl-M3-wxF"/>
                 <constraint firstItem="kPK-kq-O7G" firstAttribute="top" secondItem="w10-FL-MLz" secondAttribute="bottom" constant="11" id="kdT-B2-7Gh"/>
                 <constraint firstItem="mq6-Si-ABZ" firstAttribute="top" secondItem="w10-FL-MLz" secondAttribute="bottom" constant="11" id="nFf-zJ-bHA"/>
                 <constraint firstAttribute="trailing" secondItem="w10-FL-MLz" secondAttribute="trailing" constant="20" id="nVi-LK-w05"/>

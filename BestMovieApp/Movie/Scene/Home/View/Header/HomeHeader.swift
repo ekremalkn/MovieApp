@@ -22,7 +22,6 @@ class HomeHeader: UICollectionReusableView {
         items = data
         collection.reloadData()
     }
-    
 }
 
 //MARK: - CollectionViewMethods
@@ -45,9 +44,6 @@ extension HomeHeader: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let height = collectionView.frame.height * 283 / 812
         return CGSize(width: width, height: collectionView.frame.height)
     }
-    
-    
-    
 }
 
 

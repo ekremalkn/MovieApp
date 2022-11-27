@@ -17,11 +17,25 @@ class HomeViewModel {
     var latestItems = [MovieResult]()
     var topRatedItems = [MovieResult]()
     var upComingItems = [MovieResult]()
+    var movieCategory: MovieCategory?
+    var categoryData = [MovieResult]()
     var errorCallback: ((String)->())?
     var successCallback: (()->())?
     
     
     //MARK: - Getting data to Model
+    
+    func getCategory(type: MovieCategory) {
+        manager.getCategoryMovies(type: type) { movies in
+            if let movies = movies {
+                self.popularItems = movies.results!
+                self.successCallback?()
+            }
+        } onError: { error in
+            print("Error while getting data from filterView \(error)")
+        }
+        
+    }
     
     func getNowPlaying() {
         manager.getCategoryMovies(type: .nowPlaying) { movies in
@@ -43,18 +57,6 @@ class HomeViewModel {
         } onError: { error in
             print("Error while getting PopularMovies list \(error)")
         }
-    }
-    
-    func getLatest() {
-        manager.getCategoryMovies(type: .latest) { movies in
-            if let movies = movies {
-                self.latestItems = movies.results ?? []
-                self.successCallback?()
-            }
-        } onError: { error in
-            print("Error while getting LatestMovies list \(error)")
-        }
-        
     }
     
     func getTopRated() {
@@ -81,8 +83,5 @@ class HomeViewModel {
         }
         
     }
-    
-    
-    
     
 }

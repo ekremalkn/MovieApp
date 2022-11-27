@@ -19,14 +19,11 @@ class SearchController: UIViewController {
         super.viewDidLoad()
         collectionSetup()
         viewModelConfiguration()
-        
-        
     }
     
     private func collectionSetup() {
         collection.register(UINib(nibName: "\(SearchMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SearchMovieCell.self)")
     }
-    
     
     private func viewModelConfiguration() {
         searchViewModel.successCallback = { [weak self] in

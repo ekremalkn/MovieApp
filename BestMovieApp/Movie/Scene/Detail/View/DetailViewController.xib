@@ -43,7 +43,7 @@
                                 <constraint firstAttribute="height" constant="120" id="iPK-2I-jMB"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqs-TD-9hD">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqs-TD-9hD">
                             <rect key="frame" x="132" y="337" width="250" height="26.333333333333314"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,18 +98,16 @@
                             <color key="textColor" red="0.97627621890000005" green="0.52928549049999996" blue="0.0094786537810000009" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUQ-rq-hI9">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUQ-rq-hI9">
                             <rect key="frame" x="262" y="396" width="120" height="35"/>
                             <color key="tintColor" red="0.98064643139999996" green="0.67307537790000005" blue="0.29356652500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="See more &gt;">
-                                <fontDescription key="titleFontDescription" style="UICTFontTextStyleHeadline"/>
-                            </buttonConfiguration>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="See all"/>
                             <connections>
                                 <action selector="openDetailLink:" destination="-1" eventType="touchUpInside" id="iyT-Lb-0PP"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amb-QS-kuc">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amb-QS-kuc">
                             <rect key="frame" x="329" y="249" width="54" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="G0G-0O-ymF"/>
@@ -117,7 +115,7 @@
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="Favorite border">
+                            <state key="normal" image="favorite">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -184,7 +182,8 @@
     <resources>
         <image name="CalendarBlank" width="16" height="16"/>
         <image name="DetailStar" width="16" height="16"/>
-        <image name="Favorite border" width="30" height="30"/>
         <image name="RateBackgorund" width="54" height="24"/>
+        <image name="See all" width="42" height="12"/>
+        <image name="favorite" width="30" height="30"/>
     </resources>
 </document>

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "trashBin.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

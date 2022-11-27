@@ -23,10 +23,6 @@ class WatchListMovieCell: SwipeCollectionViewCell {
         releaseLabel.text = data.releaseDate
         movieImage.sd_setImage(with: URL(string:"https://image.tmdb.org/t/p/original/\(data.posterPath!)" ))
         movieImage.layer.cornerRadius = 16
-        
-       
-        
-        
     }
    
 }

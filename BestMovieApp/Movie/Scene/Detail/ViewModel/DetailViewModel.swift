@@ -24,8 +24,5 @@ class DetailViewModel {
         } onError: { error in
             print("Error while getting detailMovieLink \(error)")
         }
-        
-        
-        
     }
 }

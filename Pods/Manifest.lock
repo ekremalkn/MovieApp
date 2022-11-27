@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.6.4)
+  - PanModal (1.2.7)
   - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - Alamofire
+  - PanModal
   - SwipeCellKit
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - PanModal
     - SwipeCellKit
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 742c7c5768d37ab5590e55ff11c27d127095b9d2
+PODFILE CHECKSUM: c6e1dbd982f350e90dcb81037559abe807ad60b2
 
 COCOAPODS: 1.11.3

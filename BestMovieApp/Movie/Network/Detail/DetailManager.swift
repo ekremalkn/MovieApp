@@ -24,6 +24,5 @@ class DetailManager: DetailManagerProtocol {
         }
 
     }
-    
-    
+ 
 }

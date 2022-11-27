@@ -28,6 +28,7 @@ class WatchListController: UIViewController {
     private func configureViewController() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        
     }
     
     private func collectionSetup() {
@@ -59,8 +60,6 @@ class WatchListController: UIViewController {
 extension WatchListController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SwipeCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("\(watchListMovies.count)ekrem")
-        
         return watchListMovies.count
     }
     
@@ -68,6 +67,7 @@ extension WatchListController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(WatchListMovieCell.self)", for: indexPath) as! WatchListMovieCell
         cell.delegate = self as? SwipeCollectionViewCellDelegate
         cell.configureWatchList(data: watchListMovies[indexPath.row])
+        cell.layer.cornerRadius = 16
         return cell
     }
     
@@ -84,7 +84,7 @@ extension WatchListController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+        let deleteAction = SwipeAction(style: .default, title: "Remove from watchlist") { action, indexPath in
             // handle action by updating model with deletion
             
             DataPersistenceManager.shared.deleteWatchlistWith(model: self.watchListMovies[indexPath.row]) { result in
@@ -103,7 +103,7 @@ extension WatchListController: UICollectionViewDataSource, UICollectionViewDeleg
         }
         
         // customize the action appearance
-        deleteAction.image = UIImage(named: "favorite")
+        deleteAction.image = UIImage(named: "trashBin")
         
         return [deleteAction]
     }

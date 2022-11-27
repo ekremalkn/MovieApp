@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,6 +59,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IJt-oz-pI6">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="VSd-YC-tjP" kind="relationship" relationship="rootViewController" id="Xuc-Ya-ej3"/>
@@ -96,6 +101,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7jb-ck-ti3">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pev-no-jtO"/>
@@ -138,7 +144,27 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aYD-au-xgQ" secondAttribute="trailing" id="tC9-FB-V2Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ClickMovie" id="1GC-gB-5Pf"/>
+                    <navigationItem key="navigationItem" title="ClickMovie" id="1GC-gB-5Pf">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="S6b-MQ-Rk8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jTJ-1D-tjS">
+                                <rect key="frame" x="16" y="0.0" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="57-removebg-preview"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Jwa-BW-vlk">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JlP-4M-ljE">
+                                <rect key="frame" x="350" y="10" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="filterButton"/>
+                                <connections>
+                                    <action selector="showFilterTableView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xkN-hd-EQ1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collection" destination="aYD-au-xgQ" id="k1V-Ih-VSD"/>
                     </connections>
@@ -146,6 +172,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913.84615384615381" y="-650.47393364928905"/>
+        </scene>
+        <!--Filter Controller-->
+        <scene sceneID="IIj-3Y-ZXr">
+            <objects>
+                <viewController storyboardIdentifier="FilterController" id="rUW-xg-HlZ" customClass="FilterController" customModule="BestMovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eMj-N6-h72">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FTH-tA-hwy">
+                                <rect key="frame" x="0.0" y="87" width="390" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.14117647059999999" green="0.1647058824" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rUW-xg-HlZ" id="NBa-Do-ZdB"/>
+                                    <outlet property="delegate" destination="rUW-xg-HlZ" id="ckH-78-Wp9"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZK-0j-0KB">
+                                <rect key="frame" x="25" y="58" width="340" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o5v-Jb-ok4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FTH-tA-hwy" firstAttribute="trailing" secondItem="o5v-Jb-ok4" secondAttribute="trailing" id="J2Y-v8-lep"/>
+                            <constraint firstItem="hZK-0j-0KB" firstAttribute="leading" secondItem="o5v-Jb-ok4" secondAttribute="leading" constant="25" id="JvB-hD-g8A"/>
+                            <constraint firstItem="FTH-tA-hwy" firstAttribute="bottom" secondItem="o5v-Jb-ok4" secondAttribute="bottom" id="XcP-FY-0lm"/>
+                            <constraint firstItem="FTH-tA-hwy" firstAttribute="top" secondItem="hZK-0j-0KB" secondAttribute="bottom" constant="8" id="cyJ-UG-VXH"/>
+                            <constraint firstItem="hZK-0j-0KB" firstAttribute="top" secondItem="o5v-Jb-ok4" secondAttribute="top" constant="11" id="dM8-Ey-4Ey"/>
+                            <constraint firstItem="FTH-tA-hwy" firstAttribute="top" secondItem="o5v-Jb-ok4" secondAttribute="top" constant="40" id="s7K-fO-dOj"/>
+                            <constraint firstItem="FTH-tA-hwy" firstAttribute="leading" secondItem="o5v-Jb-ok4" secondAttribute="leading" id="sbT-QH-LNF"/>
+                            <constraint firstItem="o5v-Jb-ok4" firstAttribute="trailing" secondItem="hZK-0j-0KB" secondAttribute="trailing" constant="25" id="wYY-L7-el5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="FTH-tA-hwy" id="IHe-I3-Df8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jnw-wr-zZj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704.6153846153845" y="-650.47393364928905"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EhZ-c2-DBH">
@@ -155,6 +226,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXV-Xy-HhY">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="p6y-ta-7FP" kind="relationship" relationship="rootViewController" id="59V-s1-L9v"/>
@@ -211,7 +283,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search Movies" id="kPr-e6-H5N">
-                        <barButtonItem key="backBarButtonItem" id="WiC-DV-S77"/>
+                        <barButtonItem key="backBarButtonItem" title="Back to search" id="WiC-DV-S77"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collection" destination="K4n-01-shL" id="kC6-Ym-WqB"/>
@@ -224,8 +296,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="57-removebg-preview" width="57" height="57"/>
         <image name="Home" width="33" height="46"/>
         <image name="Search" width="38" height="46"/>
         <image name="WatchList" width="54" height="46"/>
+        <image name="filterButton" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -22,8 +22,6 @@ class HomeManager: HomeManagerProtocol {
         switch type {
         case .nowPlaying:
             url = HomeEndpoint.nowPlaying.path
-        case .latest:
-            url = HomeEndpoint.latest.path
         case .popular:
             url = HomeEndpoint.popular.path
         case .topRated:

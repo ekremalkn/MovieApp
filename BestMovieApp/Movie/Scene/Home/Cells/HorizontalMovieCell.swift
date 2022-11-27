@@ -27,6 +27,5 @@ class HorizontalMovieCell: UICollectionViewCell {
         releaseLabel.text = data.horizontalCellRelease
         movieImage.sd_setImage(with: URL(string: data.horizontalCellImage)!)
         movieImage.layer.cornerRadius = 15
-        
     }
 }
