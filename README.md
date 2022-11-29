@@ -8,6 +8,8 @@ MVVM Architecture ✅
 
 Nib  ✅
 
+CoreData ✅
+
 Alamofire ✅
 
 SDWebImage ✅
